@@ -1,0 +1,16 @@
+---
+home: true
+heroImage: /logo.png
+heroAlt: Logo image
+heroText: 码步鱼
+tagline: 你瞅啥
+actionText: Get Started
+actionLink: /guide/
+features:
+  - title: 后端
+    details: Java Spring全家桶 Node(express koa egg) Golang(go-kit gin 云原生) Python(学数学去吧) 大数据(哪来那么些big data)
+  - title: 前端
+    details: react vue(2,3) 东风压倒西风 typescript tailwindss 小程序一把嗦 cesium webRtc搞起来
+  - title: 云上有点冷
+    details: 微服务 云原生 k8s满天飞 docker rancher istio traefik prometheus grafana 网关 熔断 降级 服务监控
+---
