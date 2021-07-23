@@ -4,6 +4,10 @@ module.exports = {
     title: '码步鱼',
     description: 'java node nodejs typescript k8s golang python react native vue vue3 flutter uni-app taro 后端 前端 app 小程序 运维 微服务 架构 微信 博客 笔记',
     themeConfig: {
+        algolia: {
+            apiKey: '54b83b9e93ddc84c12af5a8084c5b968',
+            indexName: 'vblog'
+        },
         sidebar: {
             "/language/": languageSider(),
             "/article/": articleSider(),
