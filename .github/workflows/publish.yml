@@ -20,6 +20,7 @@ jobs:
       - name: Publish Docs
         run: |
           rm -rf ./docs && mv .vitepress/dist ./docs
+          touch ./docs/CNAME && echo 'blog.bootvue.com' >> ./docs/CNAME
           git config --global user.email "bootvue@gmail.com"
           git config --global user.name "github actions"
           git add .
