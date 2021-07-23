@@ -6,6 +6,7 @@ module.exports = {
     themeConfig: {
         sidebar: {
             "/language/": languageSider(),
+            "/article/": articleSider(),
             "/other/": otherSider(),
         },
         nav: [
@@ -65,6 +66,17 @@ function otherSider() {
         {
             text: "二手好货",
             children: [{ text: "珍藏", link: "/other/xianyu" }],
+        },
+    ]
+}
+
+function articleSider() {
+    return [
+        {
+            text: '阿里云',
+            children: [
+                { text: 'sts', link: '/article/sts' }
+            ],
         },
     ]
 }
