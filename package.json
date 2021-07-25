@@ -12,5 +12,6 @@
   "devDependencies": {
     "stylus": "^0.54.8",
     "vitepress": "^0.15.6"
-  }
+  },
+  "dependencies": {}
 }

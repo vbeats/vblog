@@ -2,6 +2,10 @@ module.exports = {
     base: '/',
     lang: 'zh-CN',
     title: '码步鱼',
+    markdown: {
+        linkify: true,
+        typographer: true,
+    },
     description: 'java node nodejs typescript k8s golang python react native vue vue3 flutter uni-app taro 后端 前端 app 小程序 运维 微服务 架构 微信 博客 笔记',
     themeConfig: {
         algolia: {
@@ -11,6 +15,8 @@ module.exports = {
         sidebar: {
             "/language/": languageSider(),
             "/article/": articleSider(),
+            "/open/": openSourceSider(),
+            "/cloud/": cloudSider(),
             "/other/": otherSider(),
         },
         nav: [
@@ -19,7 +25,7 @@ module.exports = {
                 link: "/",
             },
             {
-                text: "编程语言",
+                text: "语言基础",
                 link: "/language/",
             },
             {
@@ -51,9 +57,12 @@ module.exports = {
 function languageSider() {
     return [
         {
-            text: '编程语言',
+            text: '语言基础',
             children: [
-                { text: '文档', link: '/language/index' }
+                { text: '文档', link: '/language/index' },
+                { text: 'NodeJs', link: '/language/node' },
+                { text: 'JVM', link: '/language/jvm' },
+                { text: 'React', link: '/language/react' }
             ],
         },
     ];
@@ -80,6 +89,34 @@ function articleSider() {
             text: '阿里云',
             children: [
                 { text: 'sts', link: '/article/sts' }
+            ],
+        },
+    ]
+}
+
+function openSourceSider() {
+    return [
+        {
+            text: '开源项目/组件',
+            children: [
+                { text: '文档', link: '/open/index' },
+                { text: 'mongo', link: '/open/mongo' },
+                { text: 'hadoop', link: '/open/hadoop' },
+                { text: 'hdfs', link: '/open/hdfs' },
+                { text: 'mapreduce', link: '/open/mapreduce' }
+            ],
+        },
+    ]
+}
+
+function cloudSider() {
+    return [
+        {
+            text: '云原生',
+            children: [
+                { text: '文档', link: '/cloud/index' },
+                { text: 'k8s', link: '/cloud/k8s' },
+                { text: 'rancher', link: '/cloud/rancher' },
             ],
         },
     ]
