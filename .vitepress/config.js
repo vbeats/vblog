@@ -10,7 +10,8 @@ module.exports = {
     themeConfig: {
         algolia: {
             apiKey: '7669109081e1eea7f564152e26562c67',
-            indexName: 'vblog'
+            indexName: 'vblog',
+            appId: 'G58JT4FYT8'
         },
         sidebar: {
             "/language/": languageSider(),
