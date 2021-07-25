@@ -62,7 +62,8 @@ function languageSider() {
                 { text: '文档', link: '/language/index' },
                 { text: 'NodeJs', link: '/language/node' },
                 { text: 'JVM', link: '/language/jvm' },
-                { text: 'React', link: '/language/react' }
+                { text: 'React', link: '/language/react' },
+                { text: 'Python', link: '/language/python' }
             ],
         },
     ];
@@ -74,6 +75,10 @@ function otherSider() {
             text: "杂记",
             children: [
                 { text: "常用配置", link: "/other/index" },
+                { text: "Linux", link: "/other/linux" },
+                { text: "Nginx", link: "/other/nginx" },
+                { text: "Shell", link: "/other/shell" },
+                { text: "其它", link: "/other/other" },
             ],
         },
         {
@@ -103,7 +108,22 @@ function openSourceSider() {
                 { text: 'mongo', link: '/open/mongo' },
                 { text: 'hadoop', link: '/open/hadoop' },
                 { text: 'hdfs', link: '/open/hdfs' },
-                { text: 'mapreduce', link: '/open/mapreduce' }
+                { text: 'mapreduce', link: '/open/mapreduce' },
+                { text: 'elk', link: '/open/elk' },
+                { text: 'flink', link: '/open/flink' },
+                { text: 'kafka', link: '/open/kafka' },
+                { text: 'netty', link: '/open/netty' },
+                { text: 'proxy', link: '/open/proxy' },
+                { text: 'rocket', link: '/open/rocket' },
+                { text: 'zookeeper', link: '/open/zookeeper' },
+                { text: 'mysql', link: '/open/mysql' },
+                { text: 'kong', link: '/open/kong' },
+                { text: 'redis', link: '/open/redis' },
+                { text: 'canvas', link: '/open/canvas' },
+                { text: 'flutter', link: '/open/flutter' },
+                { text: 'sockerio', link: '/open/sockerio' },
+                { text: 'typescript', link: '/open/typescript' },
+                { text: 'webpack', link: '/open/webpack' },
             ],
         },
     ]

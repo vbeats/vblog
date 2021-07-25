@@ -1,0 +1,278 @@
+# Nginx
+
+[文档](https://www.nginx.cn/doc/)
+
+## Orange
+
+[文档](https://github.com/orlabs/orange)
+
+### 配置
+
+```nginx
+worker_processes auto;
+user root;
+
+events {
+    worker_connections  4096;
+}
+
+# optional: path of orange.conf
+env ORANGE_CONF;
+
+http {
+    resolver 114.114.114.114; # replace it with your favorite config
+    charset UTF-8;
+    include ./mime.types;
+
+    log_format  main '$remote_addr - $remote_user [$time_local] "$request" '
+    '$status $body_bytes_sent "$http_referer" '
+    '"$http_user_agent" "$request_time" "$ssl_protocol" "$ssl_cipher" "$http_x_forwarded_for"'
+    '"$upstream_addr" "$upstream_status" "$upstream_response_length" "$upstream_response_time"';
+
+    access_log  ./logs/access.log  main;
+    error_log ./logs/error.log error;
+
+    sendfile        on;
+    keepalive_timeout  65;
+
+    upstream default_upstream {
+        server localhost:8001;
+    }
+
+    #
+    # Config client_body_buffer_size equal client_max_body_size for enforcing in-memory buffering of the whole request body
+    # ref: https://github.com/openresty/lua-nginx-module/issues/521
+    #
+    # official instruct docs http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
+    #
+    client_body_buffer_size 1m;
+    client_max_body_size 1m;
+
+    #----------------------------Orange configuration-----------------------------
+    lua_package_path  "$prefix/deps/share/lua/5.1/?.lua;$prefix/deps/share/lua/5.1/orange/?.lua;$prefix/?.lua;/usr/share/lua/5.1/?.lua;/usr/local/lor/?.lua;;";
+    lua_package_cpath "$prefix/deps/lib64/lua/5.1/?.so;$prefix/deps/lib/lua/5.1/?.so;/usr/lib64/lua/5.1/?.so;;";
+    lua_code_cache on;
+
+    lua_shared_dict orange_data 20m; # should not removed. used for orange data, e.g. plugins configurations..
+
+    lua_shared_dict status 1m; # used for global statistic, see plugin: stat
+    lua_shared_dict waf_status 1m; # used for waf statistic, see plugin: waf
+    lua_shared_dict monitor 10m; # used for url monitor statistic, see plugin: monitor
+    lua_shared_dict rate_limit 10m; # used for rate limiting count, see plugin: rate_limiting
+    lua_shared_dict property_rate_limiting 10m; # used for rate limiting count, see plugin: rate_limiting
+
+
+
+    init_by_lua_block {
+        local orange = require("orange.orange")
+        local env_orange_conf = os.getenv("ORANGE_CONF")
+        print(string.char(27) .. "[34m" .. "[INFO]" .. string.char(27).. "[0m", [[the env[ORANGE_CONF] is ]], env_orange_conf)
+
+        -- Here, you can also use the absolute path, eg: local confige_file = "/home/openresty/orange/conf/orange.conf"
+        local config_file = env_orange_conf or ngx.config.prefix().. "/conf/orange.conf"
+        local config, store = orange.init({
+            config = config_file
+        })
+
+        -- the orange context
+        context = {
+            orange = orange,
+            store = store,
+            config = config
+        }
+    }
+
+    init_worker_by_lua_block {
+        local orange = context.orange
+        orange.init_worker()
+    }
+
+    # main server
+    server {
+        listen       80;
+        #server_name  my_domain.com;
+
+        location = /favicon.ico {
+            log_not_found off;
+            access_log off;
+        }
+
+        location / {
+            set $upstream_host $host;
+            set $upstream_url 'http://default_upstream';
+
+            rewrite_by_lua_block {
+                local orange = context.orange
+                orange.redirect()
+                orange.rewrite()
+            }
+
+            access_by_lua_block {
+                local orange = context.orange
+                orange.init_cookies()
+                orange.access()
+            }
+
+            # proxy
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Scheme $scheme;
+            proxy_set_header Host $upstream_host;
+            proxy_pass $upstream_url;
+
+
+            header_filter_by_lua_block {
+                local orange = context.orange
+                orange.header_filter()
+            }
+
+            body_filter_by_lua_block {
+                local orange = context.orange
+                orange.body_filter()
+            }
+
+            log_by_lua_block {
+                local orange = context.orange
+                orange.log()
+            }
+        }
+
+        location /robots.txt {
+            return 200 'User-agent: *\nDisallow: /';
+        }
+    }
+
+    # default upstream server
+    server {
+        listen 8001;
+        server_name localhost 127.0.0.1;
+        access_log ./logs/default_upstream_access.log main;
+        error_log ./logs/default_upstream_error.log;
+
+        location / {
+            content_by_lua_block {
+                local json = require "cjson"
+                ngx.status = 200
+                ngx.say("Host: "..ngx.var.host .. "  URI: " .. ngx.var.uri)
+                ngx.say('[Query Params]', json.encode(ngx.req.get_uri_args()))
+                ngx.req.read_body()
+                ngx.say('[Post Params]', json.encode(ngx.req.get_post_args()))
+                ngx.say('[Header Params]', json.encode(ngx.req.get_headers()))
+            }
+        }
+    }
+
+
+    # orange dashboard server
+    server {
+        listen       9999;
+        stub_status on;
+        #server_name  localhost;
+        access_log ./logs/dashboard_access.log main;
+        error_log ./logs/dashboard_error.log info;
+
+        location = /favicon.ico {
+            log_not_found off;
+            access_log off;
+        }
+
+        location /robots.txt {
+            return 200 'User-agent: *\nDisallow: /';
+        }
+
+        # dashboard的静态文件
+        location ~* /static/(.*) {
+            alias ./dashboard/static/$1;
+        }
+
+        location / {
+            set $template_root '';
+            content_by_lua_block {
+                context.views_path = ngx.config.prefix() .. "/dashboard/views"
+                local main = require("dashboard.main")
+                main:run()
+            }
+        }
+    }
+
+    # api server
+    server {
+        listen       7777;
+        #server_name  localhost;
+        access_log ./logs/api_access.log main;
+        error_log ./logs/api_error.log info;
+
+        location = /favicon.ico {
+            log_not_found off;
+            access_log off;
+        }
+
+        location /robots.txt {
+            return 200 'User-agent: *\nDisallow: /';
+        }
+
+        location / {
+            content_by_lua_block {
+                local main = require("api.main")
+                main:run()
+            }
+        }
+    }
+
+}
+```
+
+### 跨域:
+
+```nginx
+ location /test/{
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    proxy_pass http://127.0.0.1:8080/test/;
+}
+```
+
+### 静态资源配置:
+
+```nginx
+location ~ \.(jpeg|png|gif){
+            root /home/feiyanImage;
+}
+```
+
+### 反向代理 IP 转发配置:
+
+```nginx
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header REMOTE-HOST $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+```
+
+### basic auth
+
+<code>apache2-utils</code>
+
+```bash
+htpasswd -c -d /etc/nginx/pass_file  xxxxxx
+
+
+server {
+    auth_basic "请输入密码";
+    auth_basic_user_file /etc/nginx/pass_file; # 存放密码文件的路径
+}
+```
+
+### 日志分割
+
+```nginx
+  # 不知道好不好用
+    map $time_iso8601 $logdate {
+ 			 '~^(?<ymd>\d{4}-\d{2})' $ymd;
+
+ 			# 也可以按照天进行分割
+ 			#'~^(?<ymd>\d{4}-\d{2}-\d{2})' $ymd;
+  		default  date-not-found';
+		}
+    access_log  logs/access-$logdate.log main;
+```
