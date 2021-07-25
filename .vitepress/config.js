@@ -9,7 +9,7 @@ module.exports = {
     description: 'java node nodejs typescript k8s golang python react native vue vue3 flutter uni-app taro 后端 前端 app 小程序 运维 微服务 架构 微信 博客 笔记',
     themeConfig: {
         algolia: {
-            apiKey: '1f2cbb2f975d56b3f102db2fbdd7d984',
+            apiKey: '7669109081e1eea7f564152e26562c67',
             indexName: 'vblog'
         },
         sidebar: {
