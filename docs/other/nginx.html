@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nginx | 码步鱼</title>
+    <meta name="description" content="java node nodejs typescript k8s golang python react native vue vue3 flutter uni-app taro 后端 前端 app 小程序 运维 微服务 架构 微信 博客 笔记">
+    <link rel="stylesheet" href="/assets/style.90d29390.css">
+    <link rel="modulepreload" href="/assets/Home.9e4604c1.js">
+    <link rel="modulepreload" href="/assets/AlgoliaSearchBox.39daa340.js">
+    <link rel="modulepreload" href="/assets/app.040fc7a7.js">
+    <link rel="modulepreload" href="/assets/other_nginx.md.34da6e34.lean.js">
+    <link rel="modulepreload" href="/assets/app.040fc7a7.js">
+    <meta name="twitter:title" content="Nginx | 码步鱼">
+    <meta property="og:title" content="Nginx | 码步鱼">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-6898e0ee><div class="sidebar-button" data-v-6898e0ee><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="码步鱼, back to home" data-v-6898e0ee data-v-7ac13a1e><!----> 码步鱼</a><div class="flex-grow" data-v-6898e0ee></div><div class="nav" data-v-6898e0ee><nav class="nav-links" data-v-6898e0ee data-v-640fc9fc><!--[--><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/" data-v-792310f6>首页 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/language/" data-v-792310f6>语言基础 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/article/" data-v-792310f6>文章 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/open/" data-v-792310f6>OpenSource <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/micro/" data-v-792310f6>微服务 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/cloud/" data-v-792310f6>云 ☁️ <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item active" href="/other/" data-v-792310f6>杂七杂八 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item isExternal" href="https://github.com/vbeats" target="_blank" rel="noopener noreferrer" data-v-792310f6>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-792310f6><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--[--><div class="algolia-search-box" id="docsearch"></div><!--]--><!--]--></header><aside class="sidebar" data-v-71f182b0><nav class="nav-links nav" data-v-71f182b0 data-v-640fc9fc><!--[--><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/" data-v-792310f6>首页 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/language/" data-v-792310f6>语言基础 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/article/" data-v-792310f6>文章 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/open/" data-v-792310f6>OpenSource <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/micro/" data-v-792310f6>微服务 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item" href="/cloud/" data-v-792310f6>云 ☁️ <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item active" href="/other/" data-v-792310f6>杂七杂八 <!----></a></div></div><div class="item" data-v-640fc9fc><div class="nav-link" data-v-640fc9fc data-v-792310f6><a class="item isExternal" href="https://github.com/vbeats" target="_blank" rel="noopener noreferrer" data-v-792310f6>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-792310f6><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-71f182b0><!--[--><li class="sidebar-link"><p class="sidebar-link-item">杂记</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="/other/index">常用配置</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/other/linux">Linux</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/other/nginx">Nginx</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#orange">Orange</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#配置">配置</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#跨域">跨域:</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#静态资源配置">静态资源配置:</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#反向代理-ip-转发配置">反向代理 IP 转发配置:</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#basic-auth">basic auth</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#日志分割">日志分割</a><!----></li></ul></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="/other/shell">Shell</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/other/other">其它</a><!----></li></ul></li><li class="sidebar-link"><p class="sidebar-link-item">二手好货</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="/other/xianyu">珍藏</a><!----></li></ul></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-8fcebc32><div class="container" data-v-8fcebc32><!--[--><!--]--><div style="position:relative;" class="content" data-v-8fcebc32><div><h1 id="nginx"><a class="header-anchor" href="#nginx" aria-hidden="true">#</a> Nginx</h1><p><a href="https://www.nginx.cn/doc/" target="_blank" rel="noopener noreferrer">文档</a></p><h2 id="orange"><a class="header-anchor" href="#orange" aria-hidden="true">#</a> Orange</h2><p><a href="https://github.com/orlabs/orange" target="_blank" rel="noopener noreferrer">文档</a></p><h3 id="配置"><a class="header-anchor" href="#配置" aria-hidden="true">#</a> 配置</h3><div class="language-nginx"><pre><code><span class="token directive"><span class="token keyword">worker_processes</span> auto</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">user</span> root</span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">events</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span>  <span class="token number">4096</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># optional: path of orange.conf</span>
+<span class="token directive"><span class="token keyword">env</span> ORANGE_CONF</span><span class="token punctuation">;</span>
+
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">resolver</span> 114.114.114.114</span><span class="token punctuation">;</span> <span class="token comment"># replace it with your favorite config</span>
+    <span class="token directive"><span class="token keyword">charset</span> UTF-8</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">include</span> ./mime.types</span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">log_format</span>  main <span class="token string">&#39;<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local]</span> &quot;<span class="token variable">$request</span>&quot; &#39;</span>
+    <span class="token string">&#39;<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; &#39;</span>
+    <span class="token string">&#39;&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$request_time</span>&quot; &quot;<span class="token variable">$ssl_protocol</span>&quot; &quot;<span class="token variable">$ssl_cipher</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;&#39;</span>
+    <span class="token string">&#39;&quot;<span class="token variable">$upstream_addr</span>&quot; &quot;<span class="token variable">$upstream_status</span>&quot; &quot;<span class="token variable">$upstream_response_length</span>&quot; &quot;<span class="token variable">$upstream_response_time</span>&quot;&#39;</span></span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">access_log</span>  ./logs/access.log  main</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">error_log</span> ./logs/error.log error</span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">sendfile</span>        <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive_timeout</span>  <span class="token number">65</span></span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">upstream</span> default_upstream</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">server</span> localhost:8001</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">#</span>
+    <span class="token comment"># Config client_body_buffer_size equal client_max_body_size for enforcing in-memory buffering of the whole request body</span>
+    <span class="token comment"># ref: https://github.com/openresty/lua-nginx-module/issues/521</span>
+    <span class="token comment">#</span>
+    <span class="token comment"># official instruct docs http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size</span>
+    <span class="token comment">#</span>
+    <span class="token directive"><span class="token keyword">client_body_buffer_size</span> <span class="token number">1m</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">client_max_body_size</span> <span class="token number">1m</span></span><span class="token punctuation">;</span>
+
+    <span class="token comment">#----------------------------Orange configuration-----------------------------</span>
+    <span class="token directive"><span class="token keyword">lua_package_path</span>  <span class="token string">&quot;<span class="token variable">$prefix</span>/deps/share/lua/5.1/?.lua;<span class="token variable">$prefix</span>/deps/share/lua/5.1/orange/?.lua;<span class="token variable">$prefix</span>/?.lua;/usr/share/lua/5.1/?.lua;/usr/local/lor/?.lua;;&quot;</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">lua_package_cpath</span> <span class="token string">&quot;<span class="token variable">$prefix</span>/deps/lib64/lua/5.1/?.so;<span class="token variable">$prefix</span>/deps/lib/lua/5.1/?.so;/usr/lib64/lua/5.1/?.so;;&quot;</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">lua_code_cache</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+
+    <span class="token directive"><span class="token keyword">lua_shared_dict</span> orange_data <span class="token number">20m</span></span><span class="token punctuation">;</span> <span class="token comment"># should not removed. used for orange data, e.g. plugins configurations..</span>
+
+    <span class="token directive"><span class="token keyword">lua_shared_dict</span> status <span class="token number">1m</span></span><span class="token punctuation">;</span> <span class="token comment"># used for global statistic, see plugin: stat</span>
+    <span class="token directive"><span class="token keyword">lua_shared_dict</span> waf_status <span class="token number">1m</span></span><span class="token punctuation">;</span> <span class="token comment"># used for waf statistic, see plugin: waf</span>
+    <span class="token directive"><span class="token keyword">lua_shared_dict</span> monitor <span class="token number">10m</span></span><span class="token punctuation">;</span> <span class="token comment"># used for url monitor statistic, see plugin: monitor</span>
+    <span class="token directive"><span class="token keyword">lua_shared_dict</span> rate_limit <span class="token number">10m</span></span><span class="token punctuation">;</span> <span class="token comment"># used for rate limiting count, see plugin: rate_limiting</span>
+    <span class="token directive"><span class="token keyword">lua_shared_dict</span> property_rate_limiting <span class="token number">10m</span></span><span class="token punctuation">;</span> <span class="token comment"># used for rate limiting count, see plugin: rate_limiting</span>
+
+
+
+    <span class="token directive"><span class="token keyword">init_by_lua_block</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">local</span> orange = require(<span class="token string">&quot;orange.orange&quot;</span>)
+        local env_orange_conf = os.getenv(<span class="token string">&quot;ORANGE_CONF&quot;</span>)
+        print(string.char(27) .. <span class="token string">&quot;[34m&quot;</span> .. <span class="token string">&quot;[INFO]&quot;</span> .. string.char(27).. <span class="token string">&quot;[0m&quot;</span>, [[the env[ORANGE_CONF] is ]], env_orange_conf)
+
+        -- Here, you can also use the absolute path, eg: local confige_file = <span class="token string">&quot;/home/openresty/orange/conf/orange.conf&quot;</span>
+        local config_file = env_orange_conf or ngx.config.prefix().. <span class="token string">&quot;/conf/orange.conf&quot;</span>
+        local config, store = orange.init(</span><span class="token punctuation">{</span>
+            config = config_file
+        <span class="token punctuation">}</span>)
+
+        -- <span class="token directive"><span class="token keyword">the</span> orange context
+        context =</span> <span class="token punctuation">{</span>
+            orange = orange,
+            store = store,
+            config = config
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token directive"><span class="token keyword">init_worker_by_lua_block</span></span> <span class="token punctuation">{</span>
+        local orange = context.orange
+        orange.init_worker()
+    <span class="token punctuation">}</span>
+
+    <span class="token comment"># main server</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+        <span class="token comment">#server_name  my_domain.com;</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = /favicon.ico</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">log_not_found</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">access_log</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">set</span> <span class="token variable">$upstream_host</span> <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">set</span> <span class="token variable">$upstream_url</span> <span class="token string">&#39;http://default_upstream&#39;</span></span><span class="token punctuation">;</span>
+
+            <span class="token directive"><span class="token keyword">rewrite_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local orange = context.orange
+                orange.redirect()
+                orange.rewrite()
+            <span class="token punctuation">}</span>
+
+            <span class="token directive"><span class="token keyword">access_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local orange = context.orange
+                orange.init_cookies()
+                orange.access()
+            <span class="token punctuation">}</span>
+
+            <span class="token comment"># proxy</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-Scheme <span class="token variable">$scheme</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$upstream_host</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">proxy_pass</span> <span class="token variable">$upstream_url</span></span><span class="token punctuation">;</span>
+
+
+            <span class="token directive"><span class="token keyword">header_filter_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local orange = context.orange
+                orange.header_filter()
+            <span class="token punctuation">}</span>
+
+            <span class="token directive"><span class="token keyword">body_filter_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local orange = context.orange
+                orange.body_filter()
+            <span class="token punctuation">}</span>
+
+            <span class="token directive"><span class="token keyword">log_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local orange = context.orange
+                orange.log()
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /robots.txt</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">&#39;User-agent: *<span class="token escape entity">\n</span>Disallow: /&#39;</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment"># default upstream server</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span> <span class="token number">8001</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span> localhost 127.0.0.1</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">access_log</span> ./logs/default_upstream_access.log main</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">error_log</span> ./logs/default_upstream_error.log</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">content_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local json = require &quot;cjson&quot;
+                ngx.status = 200
+                ngx.say(&quot;Host: &quot;..ngx.var.host .. &quot;  URI: &quot; .. ngx.var.uri)
+                ngx.say(&#39;[Query Params]&#39;, json.encode(ngx.req.get_uri_args()))
+                ngx.req.read_body()
+                ngx.say(&#39;[Post Params]&#39;, json.encode(ngx.req.get_post_args()))
+                ngx.say(&#39;[Header Params]&#39;, json.encode(ngx.req.get_headers()))
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment"># orange dashboard server</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">9999</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">stub_status</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+        <span class="token comment">#server_name  localhost;</span>
+        <span class="token directive"><span class="token keyword">access_log</span> ./logs/dashboard_access.log main</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">error_log</span> ./logs/dashboard_error.log info</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = /favicon.ico</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">log_not_found</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">access_log</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /robots.txt</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">&#39;User-agent: *<span class="token escape entity">\n</span>Disallow: /&#39;</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment"># dashboard的静态文件</span>
+        <span class="token directive"><span class="token keyword">location</span> ~* /static/(.*)</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">alias</span> ./dashboard/static/<span class="token variable">$1</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">set</span> <span class="token variable">$template_root</span> <span class="token string">&#39;&#39;</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">content_by_lua_block</span></span> <span class="token punctuation">{</span>
+                context.views_path = ngx.config.prefix() .. &quot;/dashboard/views&quot;
+                local main = require(&quot;dashboard.main&quot;)
+                main:run()
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment"># api server</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">7777</span></span><span class="token punctuation">;</span>
+        <span class="token comment">#server_name  localhost;</span>
+        <span class="token directive"><span class="token keyword">access_log</span> ./logs/api_access.log main</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">error_log</span> ./logs/api_error.log info</span><span class="token punctuation">;</span>
+
+        <span class="token directive"><span class="token keyword">location</span> = /favicon.ico</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">log_not_found</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">access_log</span> <span class="token boolean">off</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /robots.txt</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">return</span> <span class="token number">200</span> <span class="token string">&#39;User-agent: *<span class="token escape entity">\n</span>Disallow: /&#39;</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">content_by_lua_block</span></span> <span class="token punctuation">{</span>
+                local main = require(&quot;api.main&quot;)
+                main:run()
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="跨域"><a class="header-anchor" href="#跨域" aria-hidden="true">#</a> 跨域:</h3><div class="language-nginx"><pre><code> <span class="token directive"><span class="token keyword">location</span> /test/</span><span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">add_header</span> <span class="token string">&#39;Access-Control-Allow-Origin&#39;</span> <span class="token string">&#39;*&#39;</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">add_header</span> <span class="token string">&#39;Access-Control-Allow-Credentials&#39;</span> <span class="token string">&#39;true&#39;</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_pass</span> http://127.0.0.1:8080/test/</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="静态资源配置"><a class="header-anchor" href="#静态资源配置" aria-hidden="true">#</a> 静态资源配置:</h3><div class="language-nginx"><pre><code><span class="token directive"><span class="token keyword">location</span> ~ \.(jpeg|png|gif)</span><span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">root</span> /home/feiyanImage</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="反向代理-ip-转发配置"><a class="header-anchor" href="#反向代理-ip-转发配置" aria-hidden="true">#</a> 反向代理 IP 转发配置:</h3><div class="language-nginx"><pre><code>    <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_set_header</span> REMOTE-HOST <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="basic-auth"><a class="header-anchor" href="#basic-auth" aria-hidden="true">#</a> basic auth</h3><p><code>apache2-utils</code></p><div class="language-bash"><pre><code>htpasswd -c -d /etc/nginx/pass_file  xxxxxx
+
+
+server <span class="token punctuation">{</span>
+    auth_basic <span class="token string">&quot;请输入密码&quot;</span><span class="token punctuation">;</span>
+    auth_basic_user_file /etc/nginx/pass_file<span class="token punctuation">;</span> <span class="token comment"># 存放密码文件的路径</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="日志分割"><a class="header-anchor" href="#日志分割" aria-hidden="true">#</a> 日志分割</h3><div class="language-nginx"><pre><code>  <span class="token comment"># 不知道好不好用</span>
+    <span class="token directive"><span class="token keyword">map</span> <span class="token variable">$time_iso8601</span> <span class="token variable">$logdate</span></span> <span class="token punctuation">{</span>
+ 			 &#39;~^(?&lt;ymd&gt;\d<span class="token punctuation">{</span>4<span class="token punctuation">}</span>-\d<span class="token punctuation">{</span>2<span class="token punctuation">}</span>)&#39; $ymd<span class="token punctuation">;</span>
+
+ 			<span class="token comment"># 也可以按照天进行分割</span>
+ 			<span class="token comment">#&#39;~^(?&lt;ymd&gt;\d{4}-\d{2}-\d{2})&#39; $ymd;</span>
+  		default  date-not-found&#39;<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+    <span class="token directive"><span class="token keyword">access_log</span>  logs/access-<span class="token variable">$logdate</span>.log main</span><span class="token punctuation">;</span>
+</code></pre></div></div></div><footer class="page-footer" data-v-8fcebc32 data-v-5c96fb00><div class="edit" data-v-5c96fb00><div class="edit-link" data-v-5c96fb00 data-v-55695e90><!----></div></div><div class="updated" data-v-5c96fb00><!----></div></footer><div class="next-and-prev-link" data-v-8fcebc32 data-v-e65a9748><div class="container" data-v-e65a9748><div class="prev" data-v-e65a9748><a class="link" href="/other/linux" data-v-e65a9748><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-e65a9748><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-e65a9748>Linux</span></a></div><div class="next" data-v-e65a9748><a class="link" href="/other/shell" data-v-e65a9748><span class="text" data-v-e65a9748>Shell</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-e65a9748><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"readme.md\":\"8b6de169\",\"index.md\":\"8eb3fdee\",\"article_index.md\":\"39d8076d\",\"article_sts.md\":\"9f426317\",\"cloud_index.md\":\"4342874b\",\"cloud_k8s.md\":\"84f0ad63\",\"cloud_rancher.md\":\"8abe6fa6\",\"language_index.md\":\"ffb75f2c\",\"language_jvm.md\":\"3b28886d\",\"language_node.md\":\"16bc7513\",\"language_python.md\":\"f648e098\",\"language_react.md\":\"f3bc5386\",\"micro_index.md\":\"6dff0f27\",\"open_canvas.md\":\"7b083c18\",\"open_elk.md\":\"b5a81efd\",\"open_flink.md\":\"9706c69f\",\"open_flutter.md\":\"e2b4aa29\",\"open_hadoop.md\":\"4ed1ced7\",\"open_hdfs.md\":\"8290e984\",\"open_index.md\":\"b3f0f52e\",\"open_kafka.md\":\"5a85e2e5\",\"open_kong.md\":\"c248bd02\",\"open_mapreduce.md\":\"f1d54e76\",\"open_mongo.md\":\"5b3612ae\",\"open_mysql.md\":\"50b41dad\",\"open_netty.md\":\"081d8bfd\",\"open_proxy.md\":\"f5d22d4a\",\"open_redis.md\":\"27129c30\",\"open_rocket.md\":\"eba745b2\",\"open_socketio.md\":\"b734fc8d\",\"open_typescript.md\":\"cf7a8dea\",\"open_webpack.md\":\"bd7d7079\",\"open_zookeeper.md\":\"d1356ecc\",\"other_index.md\":\"ba5b5fdf\",\"other_linux.md\":\"f9ba8e65\",\"other_nginx.md\":\"34da6e34\",\"other_other.md\":\"7ab44477\",\"other_shell.md\":\"c31bd98c\",\"other_xianyu.md\":\"e3d144f5\"}")</script>
+    <script type="module" async src="/assets/app.040fc7a7.js"></script>
+  </body>
+</html>
