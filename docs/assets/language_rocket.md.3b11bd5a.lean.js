@@ -1,0 +1,1 @@
+import{o as n,c as a,d as s}from"./app.88739142.js";const e='{"title":"RocketMQ 🚀","description":"","frontmatter":{},"relativePath":"language/rocket.md","lastUpdated":1627291714121}',t={},o=s('',5);t.render=function(s,e,t,p,c,r){return n(),a("div",null,[o])};export default t;export{e as __pageData};
