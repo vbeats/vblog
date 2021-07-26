@@ -4,8 +4,8 @@ heroImage: /logo.png
 heroAlt: Logo image
 heroText: 码步鱼
 tagline: 你瞅啥
-actionText: 瞅你咋滴
-actionLink: /
+actionText: Vbeats
+actionLink: https://github.com/vbeats
 features:
   - title: 后端
     details: Java Spring全家桶 Node(express koa egg) Golang(go-kit gin 云原生) Python(学数学去吧) 大数据(哪来那么些big data)
