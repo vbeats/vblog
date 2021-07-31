@@ -252,9 +252,9 @@ method: `onTap`
 
 `Scaffold` ---> `floatingActionButton` 浮动按钮
 
-\|
+↓
 
-\| --------> `floaingActionButtonLocation`:`FloatingActionButtonLocation.centerDocked`
+↓ --------> `floaingActionButtonLocation`:`FloatingActionButtonLocation.centerDocked`
 
 `BottomAppBar` ---> 融合浮动按钮组件
 
