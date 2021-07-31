@@ -22,7 +22,7 @@ void main() {
 
 数组/集合: `[ ]` `<String>[ ]`
 
-`List`: `List.filled(length,till)` 固定长度
+`List`: `List.filled(length,till)` 固定长度 `List.generate()`
 
 `Set`: `new Set()`
 
@@ -126,7 +126,7 @@ logger.log('Button clicked');
 
 ## Flutter
 
-###
+### 组件
 
 `StatelessWidget` `StatefullWidget`
 
@@ -136,3 +136,157 @@ GridView
 Row Column Stack Positioned Card
 Navigator
 ```
+
+### Container
+
+普通容器 `长` `宽` `高` `margin padding align color`等等、。。
+
+### Image
+
+`asset` `file` `memory` `network`
+
+```yml
+assets:
+  - xxx/oo.png
+```
+
+填充模式 `BoxFit` `contain fill cover .......`
+
+### ListTile
+
+`title` `leading`
+
+### ListView
+
+`Widget`集合 `scrollDirection`: 列表方向
+
+`ListView.builder(itemCount: ,itemBuilder: )`
+
+### GridView
+
+`GridView.count(...)`
+
+```dart
+GridView(
+gridDelegate: ......,
+crossAxisCount:3,
+// 。。。。，
+children:
+)
+```
+
+### Layout
+
+主轴：`mainAxisAlignment` 交叉轴: `crossAxisAlignment`
+
+- Row
+  水平布局 `Expanded`:拉伸
+
+- Column
+  垂直布局
+
+- Stack
+  `alignment`
+
+- Positioned
+  `top left bottom right`
+
+- ContrainedBox
+  弹性盒子 `contraints`
+
+- Wrap
+  包裹
+
+- Padding
+
+- Card
+  卡片样式
+
+### GestureDetector
+
+手势
+
+### Tooltip
+
+消息提示
+
+### Navigator
+
+```dart
+Navigator.push(context,MaterialPageRoute(
+  builder: content=>xxxxWidget()
+));
+
+Navigator.pop(context); // 返回上一页
+
+// 路由参数传递
+// oo为接收子路由传递的参数信息
+oo=await Navigator.push(context,MaterialPageRoute(
+  builder: content=>xxxxWidget(xxxx)
+));
+
+Navigator.pop(context, params....);
+```
+
+### StatefullWidget
+
+```dart
+class XxxWidget extends StatefulWidget{
+  _XxxWidgetState createState()=>_XxxWidgetState();
+}
+
+class _XxxWidgetState extends State<XxxWidget>{
+  // .....
+  void initState(){   // state   setState
+
+  }
+}
+
+```
+
+### BottomNavigationBar
+
+底部导航 `BottomNavigationBar`
+
+method: `onTap`
+
+`Scaffold` ---> `floatingActionButton` 浮动按钮
+
+\|
+
+\| --------> `floaingActionButtonLocation`:`FloatingActionButtonLocation.centerDocked`
+
+`BottomAppBar` ---> 融合浮动按钮组件
+
+### 路由动画
+
+```dart
+class Xxx extends PageRouteBuilder{
+  Xxx():super(
+    transitionDuration:...,
+    pageBuilder:(....){....}
+  );
+}
+```
+
+### Clip 裁切
+
+`BackdropFilter` : 背景过滤器
+
+`Path` path.lineTo(x,y)
+
+### Tabbar
+
+有状态组件 `with SingleTickerProviderStateMixin`
+
+`TabController` `TabbarView`
+
+### 页面状态
+
+`with AutomaticKeepAliveClientMixin`
+
+`bool get wantKeepAlive => true`
+
+### 搜索栏
+
+`extends SearchDelegate`

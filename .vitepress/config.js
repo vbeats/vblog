@@ -8,11 +8,6 @@ module.exports = {
     },
     description: 'java node nodejs typescript k8s golang python react native vue vue3 flutter uni-app taro 后端 前端 app 小程序 运维 微服务 架构 微信 博客 笔记',
     themeConfig: {
-        algolia: {
-            apiKey: '7669109081e1eea7f564152e26562c67',
-            indexName: 'vblog',
-            appId: 'G58JT4FYT8'
-        },
         sidebar: {
             "/language/": languageSider(),
             "/article/": articleSider(),
@@ -89,6 +84,7 @@ function otherSider() {
                 { text: "Linux", link: "/other/linux" },
                 { text: "Nginx", link: "/other/nginx" },
                 { text: "Shell", link: "/other/shell" },
+                { text: "Wireshark", link: "/other/wireshark" },
                 { text: "其它", link: "/other/other" },
             ],
         },
