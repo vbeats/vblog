@@ -181,6 +181,12 @@ sudo dpkg-reconfigure dash
 # 选否  ubuntu默认sh 指向了dash  通过上边命令  解除dash与sh的关联
 ```
 
+## root 用户
+
+为`root`用户设置密码
+
+`ubuntu`开启`root`: sshd 配置文件 `PermitRootLogin yes`
+
 ## ansible
 
 `ansible all -m ping -v`
