@@ -1,0 +1,1 @@
+import{o as n,c as s,d as a}from"./app.9f9f1749.js";const t='{"title":"云 ☁️","description":"","frontmatter":{},"headers":[{"level":2,"title":"云 ☁️","slug":"云-☁️"}],"relativePath":"cloud/index.md","lastUpdated":1627802606956}',o={},e=a('',8);o.render=function(a,t,o,p,r,c){return n(),s("div",null,[e])};export default o;export{t as __pageData};
