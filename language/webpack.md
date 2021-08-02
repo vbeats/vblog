@@ -1,9 +1,39 @@
 # webpack
 
-`webpack.config.js`
+从`vite`退回`webpack`
 
 ```bash
 webpack ./index.js -o ./dist/build.js --mode=development
+```
+
+`webpack.config.js`
+
+```js
+const { resolve } = require("path");
+
+const config = {
+  mode: "development",
+  entry: "./src/index.js",
+  output: {
+    filename: "index.js",
+    path: resolve(__dirname, "dist"),
+  },
+  module: {
+    rules: [
+      { test: /\.txt$/, use: "raw-loader" },
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: "url-loader",
+        options: { limit: 1024, esModule: false, name: "[hash:10].[ext]" },
+      },
+      { test: /\.html$/, use: "html-loader" }, // 处理html内的img资源
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.(svg|woff|ttf|eot)$/, use: "file-loader" },
+    ],
+  },
+};
+
+module.exports = config;
 ```
 
 ## Entry
@@ -29,6 +59,8 @@ output: {
 ```
 
 ## Loader
+
+处理各种文件模块
 
 ```json
 module: {
@@ -68,6 +100,21 @@ externals: {
       root: '_' // indicates global variable
     }
   }
+```
+
+## devServer
+
+`webpack-dev-server`
+
+```js
+devServer: {
+  contentBase: "",
+  compress:true,
+  port:80,
+  open:true,
+  hot:true, // 开启HMR热重载
+  devtool:'xxx-source-map',
+}
 ```
 
 ---
