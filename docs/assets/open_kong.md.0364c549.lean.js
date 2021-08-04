@@ -1,0 +1,1 @@
+import{o as n,c as s,d as a}from"./app.8862131a.js";const t='{"title":"Kong","description":"","frontmatter":{},"headers":[{"level":2,"title":"安装","slug":"安装"},{"level":2,"title":"使用","slug":"使用"}],"relativePath":"open/kong.md","lastUpdated":1628061912850}',o={},p=a('',5);o.render=function(a,t,o,e,u,c){return n(),s("div",null,[p])};export default o;export{t as __pageData};
