@@ -57,6 +57,7 @@ function languageSider() {
             children: [
                 { text: '文档', link: '/language/index' },
                 { text: 'NodeJs', link: '/language/node' },
+                { text: 'Chrome', link: '/language/chrome' },
                 { text: 'JVM', link: '/language/jvm' },
                 { text: 'React', link: '/language/react' },
                 { text: 'Python', link: '/language/python' },
