@@ -1,6 +1,6 @@
 # chrome 插件
 
-[文档](https://developer.chrome.com/docs/extensions/mv3/devguide/)
+[文档](https://developer.chrome.com/docs/extensions/)
 
 ## manifest.json
 
