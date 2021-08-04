@@ -71,9 +71,23 @@ module: {
 }
 ```
 
+实际上就是一个函数, `resolveLoader` 可以配置`loader`位置
+
+```js
+(content, map, meta) => {};
+```
+
+`loader-utils` ==> `getOptions` 获取 `loader` 中 `options` 配置信息
+
+校验`options`, `shecma-utils` ===> `validate`
+
+```js
+validate(schema.json, options, {});
+```
+
 ## Plugins
 
-乱七八糟各种插件
+乱七八糟各种插件 `tapable hooks`
 
 ```json
 plugins: [
