@@ -6,7 +6,6 @@
 
 ```json
 {
-  {
   "name": "Getting Started Example",
   "description": "Build an Extension!",
   "version": "1.0",
@@ -39,13 +38,12 @@
   },
   // dom中注入的js
   "content_scripts": [
-   {
-     "matches": ["http://*.nytimes.com/*"],
-     "css": ["my-styles.css"],
-     "js": ["content-script.js"]
-   }
- ],
-}
+    {
+      "matches": ["http://*.nytimes.com/*"],
+      "css": ["my-styles.css"],
+      "js": ["content-script.js"]
+    }
+  ]
 }
 ```
 
