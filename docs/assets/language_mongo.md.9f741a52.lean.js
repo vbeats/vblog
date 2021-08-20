@@ -1,0 +1,1 @@
+import{o as n,c as s,d as a}from"./app.652182a8.js";const t='{"title":"mongo 基础","description":"","frontmatter":{},"headers":[{"level":2,"title":"mongo 基础","slug":"mongo-基础"}],"relativePath":"language/mongo.md","lastUpdated":1629436845886}',p={},o=a('',10);p.render=function(a,t,p,e,c,l){return n(),s("div",null,[o])};export default p;export{t as __pageData};
