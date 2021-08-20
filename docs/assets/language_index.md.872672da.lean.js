@@ -1,1 +1,0 @@
-import{o as e,c as r,d as t}from"./app.8862131a.js";const n='{"title":"参考文档","description":"","frontmatter":{},"headers":[{"level":2,"title":"参考文档","slug":"参考文档"}],"relativePath":"language/index.md","lastUpdated":1629208208435}',o={},a=t('',11);o.render=function(t,n,o,p,l,s){return e(),r("div",null,[a])};export default o;export{n as __pageData};
