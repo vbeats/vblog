@@ -61,6 +61,7 @@ function languageSider() {
                 { text: 'JVM', link: '/language/jvm' },
                 { text: 'React', link: '/language/react' },
                 { text: 'Python', link: '/language/python' },
+                { text: 'Go', link: '/language/go' },
                 { text: 'Flink', link: '/language/flink' },
                 { text: 'Flutter', link: '/language/flutter' },
                 { text: 'Mongo', link: '/language/mongo' },
