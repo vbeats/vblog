@@ -54,6 +54,8 @@ xfs_growfs /dev/xxx/xxx1  # xfs格式
 `/etc/sysctl.conf` 内核参数
 
 ```bash
+vm.swappiness=0
+net.ipv4.ip_forward=1
 net.ipv4.tcp_syncookies = 1
 net.ipv4.tcp_tw_reuse = 1
 net.ipv4.tcp_tw_recycle = 1
