@@ -10,6 +10,7 @@ module.exports = {
     themeConfig: {
         sidebar: {
             "/language/": languageSider(),
+            "/gis/": gisSider(),
             "/article/": articleSider(),
             "/open/": openSourceSider(),
             "/cloud/": cloudSider(),
@@ -23,6 +24,10 @@ module.exports = {
             {
                 text: "语言基础",
                 link: "/language/",
+            },
+            {
+                text: "GIS",
+                link: "/gis/",
             },
             {
                 text: "文章",
@@ -75,6 +80,18 @@ function languageSider() {
             ],
         },
     ];
+}
+
+function gisSider() {
+    return [
+        {
+            text: 'gmt',
+            children: [
+                { text: '文档', link: '/gis/index' },
+                { text: '基础', link: '/gis/base' },
+            ],
+        },
+    ]
 }
 
 function otherSider() {
