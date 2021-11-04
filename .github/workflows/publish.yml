@@ -19,7 +19,7 @@ jobs:
       - run: yarn install && yarn build
       - name: Publish Docs
         run: |
-          rm -rf ./docs
+          rm -rf ./docs && mkdir docs
           touch ./docs/CNAME && echo 'blog.bootvue.com' >> ./docs/CNAME
           git config --global user.email "bootvue@gmail.com"
           git config --global user.name "github actions"
