@@ -1,0 +1,23 @@
+{
+  "name": "vblog",
+  "version": "1.0.0",
+  "description": "vblog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbeats/vblog.git"
+  },
+  "author": "bootvue@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vbeats/vblog/issues"
+  },
+  "homepage": "https://github.com/vbeats/vblog#readme",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.27"
+  }
+}
