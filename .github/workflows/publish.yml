@@ -1,0 +1,28 @@
+name: Publish Docs
+
+on:
+  push:
+    paths-ignore:
+      - "docs/**"
+    branches: [next]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          check-latest: true
+      - run: yarn install && yarn build
+      - name: Publish Docs
+        run: |
+          rm -rf ./docs
+          touch ./docs/CNAME && echo 'blog.bootvue.com' >> ./docs/CNAME
+          git config --global user.email "bootvue@gmail.com"
+          git config --global user.name "github actions"
+          git add .
+          git commit -am "github actions generate docs on : $(date +"%Y-%m-%d %T")"
+          git push

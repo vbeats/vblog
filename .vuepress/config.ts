@@ -5,6 +5,7 @@ import navbar from "./navbar";
 
 export default defineUserConfig<DefaultThemeOptions>({
   base: "/",
+  dest: "./docs",
   head: [
     [
       "link",
