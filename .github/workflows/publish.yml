@@ -16,10 +16,9 @@ jobs:
         with:
           node-version: "16"
           check-latest: true
-      - run: yarn install && yarn build
+      - run: yarn install && rm -rf ./docs && yarn build
       - name: Publish Docs
         run: |
-          rm -rf ./docs && mkdir docs
           touch ./docs/CNAME && echo 'blog.bootvue.com' >> ./docs/CNAME
           git config --global user.email "bootvue@gmail.com"
           git config --global user.name "github actions"
