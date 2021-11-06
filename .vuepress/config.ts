@@ -29,21 +29,21 @@ export default defineUserConfig<DefaultThemeOptions>({
     sidebarDepth: 3,
     navbar,
     sidebar,
-    plugins: [
-      [
-        "@vuepress/plugin-google-analytics",
-        {
-          id: "G-ERE4E7HP60",
-        },
-      ],
-      [
-        "@vuepress/docsearch",
-        {
-          apiKey: "<API_KEY>",
-          indexName: "<INDEX_NAME>",
-          placeholder: "Search",
-        },
-      ],
-    ],
   },
+  plugins: [
+    [
+      "@vuepress/plugin-google-analytics",
+      {
+        id: "G-ERE4E7HP60",
+      },
+    ],
+    [
+      "@vuepress/docsearch",
+      {
+        apiKey: "<API_KEY>",
+        indexName: "<INDEX_NAME>",
+        placeholder: "Search",
+      },
+    ],
+  ],
 });
