@@ -24,8 +24,26 @@ export default defineUserConfig<DefaultThemeOptions>({
     logo: "/logo.jpg",
     repoLabel: "GitHub",
     repo: "https://github.com/boot-vue",
+    docsRepo: "https://github.com/vbeats/vblog",
+    docsBranch: "next",
     sidebarDepth: 3,
     navbar,
     sidebar,
+    plugins: [
+      [
+        "@vuepress/plugin-google-analytics",
+        {
+          id: "G-ERE4E7HP60",
+        },
+      ],
+      [
+        "@vuepress/docsearch",
+        {
+          apiKey: "<API_KEY>",
+          indexName: "<INDEX_NAME>",
+          placeholder: "Search",
+        },
+      ],
+    ],
   },
 });
