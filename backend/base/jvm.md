@@ -31,7 +31,7 @@ javap -v xxx.class
 
 ## 架构图
 
-![](./imgs/jvm.png)
+![](../imgs/jvm.png)
 
 ## classlocader
 
@@ -198,4 +198,3 @@ Supplier<T>
 
 //   T get()
 ```
-

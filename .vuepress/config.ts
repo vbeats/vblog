@@ -37,13 +37,13 @@ export default defineUserConfig<DefaultThemeOptions>({
         id: "G-ERE4E7HP60",
       },
     ],
-    [
+    /* [
       "@vuepress/docsearch",
       {
         apiKey: "<API_KEY>",
         indexName: "<INDEX_NAME>",
         placeholder: "Search",
       },
-    ],
+    ], */
   ],
 });

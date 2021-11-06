@@ -5,7 +5,7 @@ export default [
   },
   {
     text: "杂记",
-    link: "/base/lang/",
+    link: "/base/",
   },
   {
     text: "后端",
@@ -31,7 +31,7 @@ export default [
     text: "其它",
     children: [
       {
-        text: "笔记",
+        text: "配置",
         link: "/note/",
       },
       {
