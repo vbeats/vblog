@@ -37,6 +37,16 @@ export default defineUserConfig<DefaultThemeOptions>({
         id: "G-ERE4E7HP60",
       },
     ],
+    [
+      "@vuepress/plugin-search",
+      {
+        locales: {
+          "/": {
+            placeholder: "按下 / 搜索",
+          },
+        },
+      },
+    ],
     /* [
       "@vuepress/docsearch",
       {

@@ -21,7 +21,11 @@ export default [
   },
   {
     text: "架构🥝",
-    link: "arch",
+    link: "/arch/",
+  },
+  {
+    text: "数据处理",
+    link: "/data/",
   },
   {
     text: "数据可视化",
