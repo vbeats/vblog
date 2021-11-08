@@ -263,7 +263,7 @@ BUILD_ID=DONTKILLME
 . /etc/profile
 ```
 
-## Filder
+## Fiddler
 
 显示 IP, 输出 websocket 日志:
 
