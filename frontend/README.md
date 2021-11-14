@@ -1,5 +1,11 @@
 ## 参考文档
 
+```bash
+npm config set registry https://registry.npm.taobao.org
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+
 [NodeJS API](https://nodejs.org/api/)
 
 [Vue](https://v3.cn.vuejs.org/guide/introduction.html)
