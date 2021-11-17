@@ -398,6 +398,26 @@ default-character-set=utf8mb4
 
 ```
 
+## 函数
+
+### 系统函数
+
+`truncate` 截断
+
+字符串函数 `concat` `trim` `find_in_set` `nullif`
+
+时间日期 `datediff` `timediff` `date_format` `time_format` `date_add(now(),interval 1 day)` `makedate(year,n)`
+
+流程控制 `if(expr,v1,v2)` `ifnull(v1,v2)` `case when expr then v1 else v2 end`
+
+聚合函数 `sum` `avg` `count` `max` `min`
+
+`with rollup` : `group by` 后追加一条记录, 对所有数据聚合统计
+
+`having`子句: 聚合统计中过滤数据
+
+### 自定义函数
+
 ## 存储过程
 
 ```bash
