@@ -101,6 +101,22 @@ const data: Array<Item> = [
   },
 ];
 
+const datav: Array<Item> = [
+  {
+    text: "基础",
+    path: "/datav/base/",
+    children: [
+      "superset",
+      "gmt",
+    ],
+  },
+  {
+    text: "文章",
+    path: "/datav/article/",
+    children: [""],
+  },
+];
+
 const genSidebar = (text: string, items: Array<Item>): SidebarConfigArray => {
   return items.map(
     (item: Item): SidebarItem => ({
@@ -115,6 +131,7 @@ export default <SidebarConfig>{
   "/backend/": genSidebar("后端", backend),
   "/frontend/": genSidebar("前端", frontend),
   "/cloud/": genSidebar("云 ☁️", cloud),
-  "/arch/": genSidebar("架构", cloud),
+  "/arch/": genSidebar("架构", arch),
   "/data/": genSidebar("数据处理", data),
+  "/datav/": genSidebar("数据可视化", datav),
 };
