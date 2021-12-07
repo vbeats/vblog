@@ -29,6 +29,12 @@
 
 ```nginx
 location ~ \.(jpeg|png|gif){
+            # ngx_http_header_module -->> add_header 添加响应头字段信息;
+            add_header X-Cache $upstream_cache_status;
+            proxy_cache picture;
+            proxy_cache_key $host$uri$is_args$args; # 以全路径md5值做做为Key
+            proxy_cache_valid 200 304 12h; #对不同的HTTP状态码设置不同的缓存时间
+            expires 7d; #总体缓存时间
             root /home/feiyanImage;
 }
 ```
