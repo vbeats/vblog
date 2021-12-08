@@ -19,7 +19,7 @@ const base: Array<Item> = [
   {
     text: "文章",
     path: "/base/article/",
-    children: [""],
+    children: ["clash"],
   },
 ];
 
