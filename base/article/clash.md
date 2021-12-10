@@ -28,16 +28,16 @@ parsers:
         const cfg = yaml.parse(raw)
         return yaml.stringify({...cfg,rules:[]})
       }
-    commands:
-      - proxy-groups.auto-
     yaml:
       append-proxy-groups:
-        - name: auto
+        - name: PROXY
           type: url-test
           proxies:
             - Proxy
-          url: 'http://www.gstatic.com/generate_204'
+          url: "http://www.gstatic.com/generate_204"
           interval: 1000
+      commands:
+        - proxy-groups.PROXY.proxies=[]proxyNames
       prepend-rules:
         - RULE-SET,applications,DIRECT
         - DOMAIN,clash.razord.top,DIRECT
@@ -47,14 +47,14 @@ parsers:
         - RULE-SET,icloud,DIRECT
         - RULE-SET,apple,DIRECT
         - RULE-SET,google,DIRECT
-        - RULE-SET,proxy,auto
+        - RULE-SET,proxy,PROXY
         - RULE-SET,direct,DIRECT
         - RULE-SET,lancidr,DIRECT
         - RULE-SET,cncidr,DIRECT
-        - RULE-SET,telegramcidr,auto
+        - RULE-SET,telegramcidr,PROXY
         - GEOIP,,DIRECT
         - GEOIP,CN,DIRECT
-        - MATCH,auto
+        - MATCH,PROXY
       mix-rule-providers:
         reject:
           type: http
