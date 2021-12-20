@@ -273,6 +273,24 @@ awk -F: '/^root/{print $7}' passwd
 --version 显示版本信息。
 ```
 
+## 日志切割
+
+`tail -50000 a.log > tmp.log` : `tail` or `head` 开始/结束xxx行
+
+`sed -n '1,50000p' a.log > tmp.log` : i到j行间的日志
+
+`split -l 3000 a.log --verbose` : 每3000行切一份
+
+`split -b 100m a.log --verbose` : 每100m切一份
+
+```bash
+-b：值为每一输出档案的大小，单位为 byte。
+-C：每一输出档中，单行的最大 byte 数。
+-d：使用数字作为后缀。
+-l：值为每一输出档的行数大小。
+-a：指定后缀长度(默认为2)。
+```
+
 ## expect
 
 shell 自动交互输入
