@@ -1,1 +1,0 @@
-const e={key:"v-03ffd72a",path:"/base/article/clash.html",title:"Clash",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"mixin",slug:"mixin",children:[]},{level:2,title:"parsers",slug:"parsers",children:[]}],git:{updatedTime:1644742755e3,contributors:[{name:"bootvue",email:"bootvue@gmail.com",commits:1}]},filePathRelative:"base/article/clash.md"};export{e as data};
