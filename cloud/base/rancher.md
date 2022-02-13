@@ -20,7 +20,7 @@
 
 `nginx` 4层 TCP代理
 
-```conf
+```nginx
 stream {
     upstream k3s_server {
         least_conn;
@@ -68,7 +68,7 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 
 `rancher` 7层HTTP代理 `rancher.demo.com`
 
-```conf
+```nginx
 upstream rancher {
     server node2:80;
     server node4:80;
