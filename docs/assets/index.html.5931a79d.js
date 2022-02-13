@@ -1,0 +1,1 @@
+const e={key:"v-551bb614",path:"/backend/",title:"",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u53C2\u8003\u6587\u6863",slug:"\u53C2\u8003\u6587\u6863",children:[]}],git:{updatedTime:1644741781e3,contributors:[{name:"bootvue",email:"bootvue@gmail.com",commits:1}]},filePathRelative:"backend/README.md"};export{e as data};
