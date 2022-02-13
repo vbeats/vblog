@@ -1,6 +1,6 @@
 # Rancher 🐄
 
-[文档](https://docs.rancher.cn/rancher2/)
+[文档](https://docs.rancher.cn/)
 
 ## 高可用部署(k3s)
 
