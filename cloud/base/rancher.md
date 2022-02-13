@@ -112,6 +112,10 @@ server {
 ```bash
 helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
 
+# namespace
+
+kubectl create namespace cattle-system
+
 # k8s secret添加ssl证书
 
 kubectl -n cattle-system create secret tls tls-rancher-ingress \
