@@ -18,6 +18,8 @@
 
 `k3s`新版本高可用集群支持使用 内嵌存储
 
+> 如果使用外部存储, 后期要修改外部存储`endpoint`地址, 修改 `/etc/systemd/system/k3s.service.env` 里的配置, `systemctl restart k3s-server` 重启服务
+
 `nginx` 4层 TCP代理
 
 ```nginx
