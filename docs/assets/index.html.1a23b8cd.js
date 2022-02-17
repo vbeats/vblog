@@ -1,1 +1,0 @@
-const t={key:"v-144f3b40",path:"/arch/",title:"\u67B6\u6784",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1644744169e3,contributors:[{name:"bootvue",email:"bootvue@gmail.com",commits:1}]},filePathRelative:"arch/README.md"};export{t as data};

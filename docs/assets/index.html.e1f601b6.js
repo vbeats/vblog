@@ -1,1 +1,0 @@
-const e={key:"v-78b2fcd3",path:"/cloud/",title:"",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u4E91 \u2601\uFE0F",slug:"\u4E91-\u2601\uFE0F",children:[]}],git:{updatedTime:1644744169e3,contributors:[{name:"bootvue",email:"bootvue@gmail.com",commits:1}]},filePathRelative:"cloud/README.md"};export{e as data};
