@@ -68,7 +68,7 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 
 2. 配置nginx
 
-`rancher` 7层HTTP代理 `rancher.demo.com`
+`rancher` 7层HTTP代理 `rancher.demo.com` , 在`loadbalancer`上终止集群`tls`认证
 
 ```nginx
 upstream rancher {
@@ -118,19 +118,19 @@ helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
 
 kubectl create namespace cattle-system
 
-# k8s secret添加ssl证书
+# 如果hostname ssl是自签名证书 : k8s secret需要添加ssl证书
 
 kubectl -n cattle-system create secret tls tls-rancher-ingress \
   --cert=tls.pem \
   --key=tls.key
 
-# 私有ca
+# 如果是自签名证书, secret需要添加 私有ca证书
 kubectl -n cattle-system create secret generic tls-ca \
   --from-file=cacerts.pem=/root/tls/cacerts.pem
 
 ```
 
-如果ssl证书是自签名证书  需要设置一下traefik-ingress  省的80 443一直在重定向
+如果`k3s traefik-ingress` 80 443一直在重定向 
 
 在`k3s-server`节点修改 `/var/lib/rancher/k3s/server/manifests`下的`traefik.yaml`, 保存后会自动更新
 
@@ -194,14 +194,15 @@ spec:
 ```
 
 ```bash
+# 如果是自签名证书  需要指定 tls.source 和 privateCA
 
 helm install rancher rancher-latest/rancher \
   --namespace cattle-system \
   --set hostname=rancher.demo.com \
   --set replicas=2 \
-  --set ingress.tls.source=secret \
-  --set privateCA=true \
-  --set tls=external
+  [--set ingress.tls.source=secret] \
+  [--set privateCA=true] \
+  --set tls=external  # 在外部loadbalancer终止tls
 
 # tls验证
 
