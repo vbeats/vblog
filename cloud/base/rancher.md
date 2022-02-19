@@ -221,6 +221,8 @@ kubectl get ingress -A
 
 kubectl describe ingress rancher -n cattle-system
 
+kubectl edit ingress rancher -n cattle-system
+
 # ingress 示例
 
 Name:             rancher
