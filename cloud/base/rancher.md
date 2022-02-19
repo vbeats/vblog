@@ -243,3 +243,44 @@ Annotations:        field.cattle.io/publicEndpoints:
 Events:             <none>
 
 ```
+
+4. 其它
+
+> k3s-server开启自动更新
+
+安装 `system-upgrade-controller`
+
+```bash
+kubectl apply -f https://github.com/rancher/system-upgrade-controller/releases/latest/download/system-upgrade-controller.yaml
+```
+
+配置升级计划
+
+```yaml
+# Server plan
+apiVersion: upgrade.cattle.io/v1
+kind: Plan
+metadata:
+  name: server-plan
+  namespace: system-upgrade
+spec:
+  concurrency: 1
+  cordon: true
+  nodeSelector:
+    matchExpressions:
+      - key: node-role.kubernetes.io/master
+        operator: In
+        values:
+          - "true"
+  serviceAccountName: system-upgrade
+  upgrade:
+    image: rancher/k3s-upgrade
+  channel: https://update.k3s.io/v1-release/channels/stable # stable或latest
+```
+
+查看升级计划执行情况
+
+```bash
+kubectl -n system-upgrade get plans -o yaml
+kubectl -n system-upgrade get jobs -o yaml
+```
