@@ -1,0 +1,1 @@
+const t={key:"v-79cecfdc",path:"/datav/",title:"\u6570\u636E\u53EF\u89C6\u5316",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:164526164e4,contributors:[{name:"bootvue",email:"bootvue@gmail.com",commits:1}]},filePathRelative:"datav/README.md"};export{t as data};
