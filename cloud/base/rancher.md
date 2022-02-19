@@ -66,6 +66,8 @@ cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 
 ```
 
+> 如果资源充足, 可以继续添加`k3s-agent`节点, 最终把`rancher-server`部署到`k3s-agent`节点上
+
 2. 配置nginx
 
 `rancher` 7层HTTP代理 `rancher.demo.com` , 在`loadbalancer`上终止集群`tls`认证
@@ -109,28 +111,11 @@ server {
 
 ```
 
-3. helm 安装 rancher server
+3. 修改`k3s-server traefik-ingress` 配置
 
-```bash
-helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
-
-# namespace
-
-kubectl create namespace cattle-system
-
-# 如果hostname ssl是自签名证书 : k8s secret需要添加ssl证书
-
-kubectl -n cattle-system create secret tls tls-rancher-ingress \
-  --cert=tls.pem \
-  --key=tls.key
-
-# 如果是自签名证书, secret需要添加 私有ca证书
-kubectl -n cattle-system create secret generic tls-ca \
-  --from-file=cacerts.pem=/root/tls/cacerts.pem
-
-```
-
-如果`k3s traefik-ingress` 80 443一直在重定向 
+::: warning
+不推荐 重启或升级 `k3s-server`后 会被默认配置覆盖
+:::
 
 在`k3s-server`节点修改 `/var/lib/rancher/k3s/server/manifests`下的`traefik.yaml`, 保存后会自动更新
 
@@ -193,6 +178,46 @@ spec:
       effect: "NoSchedule"
 ```
 
+::: tip
+推荐 `HelmChartConfig` 自定义配置
+:::
+
+`/var/lib/rancher/k3s/server/manifests/traefik-config.yaml`
+
+```yaml
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    additionalArguments:
+      - "--entryPoints.web.proxyProtocol.insecure"
+      - "--entryPoints.web.forwardedHeaders.insecure"
+```
+
+4. helm 安装 rancher server
+
+```bash
+helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+
+# namespace
+
+kubectl create namespace cattle-system
+
+# 如果hostname ssl是自签名证书 : k8s secret需要添加ssl证书
+
+kubectl -n cattle-system create secret tls tls-rancher-ingress \
+  --cert=tls.pem \
+  --key=tls.key
+
+# 如果是自签名证书, secret需要添加 私有ca证书
+kubectl -n cattle-system create secret generic tls-ca \
+  --from-file=cacerts.pem=/root/tls/cacerts.pem
+
+```
+
 ```bash
 # 如果是自签名证书  需要指定 tls.source 和 privateCA
 
@@ -246,7 +271,7 @@ Events:             <none>
 
 ```
 
-4. 其它
+5. 其它
 
 > k3s-server开启自动更新
 
