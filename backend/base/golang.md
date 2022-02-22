@@ -1,5 +1,10 @@
 # GoLang 🦔
 
+```bash
+# test
+go test -v -run Test_TcpServer vgo/test
+```
+
 ## time
 
 > 2006-01-02 15:04:05
