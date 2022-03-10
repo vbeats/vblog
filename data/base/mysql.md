@@ -298,7 +298,11 @@ switchType="1" slaveThreshold="100">
 
 ## Percona
 
-### XtraBackup
+### XtraBackup 备份
+
+```bash
+[root@linux-node1 backup]# xtrabackup --host=127.0.0.1 --port=3306 --user=root --password=root --databases=xxx --backup  --target-dir=/data
+```
 
 ## ShardingSphere
 
