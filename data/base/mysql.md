@@ -230,9 +230,9 @@ pecona 只支持 innodb 引擎 数据强一致性 实时同步数据
 
 pxc 集群启动时 要从最后一个退出的节点启动, 最后退出的节点会被标记为主节点, `grastate.dat` 文件 safe_to_bootstrap=1 表示这个节点是最后退出的节点, 要作为主节点启动 文件位置在 mysql data 目录
 
-> pxc 5.7.21 ,高版本有问题,待研究
+> pxc集群注意节点间 ssl 同步
 
-主节点容器:
+主节点容器: (旧版本 新版本看文档)
 
 ```bash
 docker run -d -p xxx:3306 \
@@ -379,11 +379,19 @@ shardingRule:
 pid-file	= /var/run/mysqld/mysqld.pid
 socket		= /var/run/mysqld/mysqld.sock
 datadir		= /var/lib/mysql
-#log-error	= /var/log/mysql/error.log
-# By default we only accept connections from localhost
-#bind-address	= 127.0.0.1
-# Disabling symbolic-links is recommended to prevent assorted security risks
+
 symbolic-links=0
+
+log-bin=mysql-log
+
+expire_logs_days = 15 # 废弃
+binlog_expire_logs_seconds=2592000  # 秒  默认30d
+
+binlog_format=ROW  #binlog格式
+
+gtid_mode=ON
+enforce_gtid_consistency=ON
+
 character_set_server=utf8mb4
 collation_server=utf8mb4_0900_ai_ci
 max_connections=1000
