@@ -376,6 +376,9 @@ shardingRule:
 
 ```bash
 [mysqld]
+
+skip-ssl
+
 pid-file	= /var/run/mysqld/mysqld.pid
 socket		= /var/run/mysqld/mysqld.sock
 datadir		= /var/lib/mysql
